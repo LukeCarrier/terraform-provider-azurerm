@@ -113,6 +113,16 @@ func dataSourceArmAppService() *schema.Resource {
 				Computed: true,
 			},
 
+			"inbound_ip_address": {
+				Type:     schema.TypeString,
+				Computed: true,
+			},
+
+			"possible_inbound_ip_addresses": {
+				Type:     schema.TypeString,
+				Computed: true,
+			},
+
 			"outbound_ip_addresses": {
 				Type:     schema.TypeString,
 				Computed: true,
@@ -206,6 +216,8 @@ func dataSourceArmAppServiceRead(d *schema.ResourceData, meta interface{}) error
 		d.Set("https_only", props.HTTPSOnly)
 		d.Set("client_cert_enabled", props.ClientCertEnabled)
 		d.Set("default_site_hostname", props.DefaultHostName)
+		d.Set("inbound_ip_address", props.InboundIPAddress)
+		d.Set("possible_inbound_ip_addresses", props.PossibleInboundIPAddresses)
 		d.Set("outbound_ip_addresses", props.OutboundIPAddresses)
 		d.Set("possible_outbound_ip_addresses", props.PossibleOutboundIPAddresses)
 	}

@@ -19,6 +19,8 @@ func TestAccDataSourceAzureRMAppService_basic(t *testing.T) {
 				Config: testAccDataSourceAppService_basic(data),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttrSet(data.ResourceName, "app_service_plan_id"),
+					resource.TestCheckResourceAttrSet(data.ResourceName, "inbound_ip_address"),
+					resource.TestCheckResourceAttrSet(data.ResourceName, "possible_inbound_ip_addresses"),
 					resource.TestCheckResourceAttrSet(data.ResourceName, "outbound_ip_addresses"),
 					resource.TestCheckResourceAttrSet(data.ResourceName, "possible_outbound_ip_addresses"),
 					resource.TestCheckResourceAttr(data.ResourceName, "tags.%", "0"),

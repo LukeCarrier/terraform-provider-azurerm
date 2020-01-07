@@ -28,6 +28,8 @@ func TestAccAzureRMAppService_basic(t *testing.T) {
 				Config: testAccAzureRMAppService_basic(data),
 				Check: resource.ComposeTestCheckFunc(
 					testCheckAzureRMAppServiceExists(data.ResourceName),
+					resource.TestCheckResourceAttrSet(data.ResourceName, "inbound_ip_address"),
+					resource.TestCheckResourceAttrSet(data.ResourceName, "possible_inbound_ip_addresses"),
 					resource.TestCheckResourceAttrSet(data.ResourceName, "outbound_ip_addresses"),
 					resource.TestCheckResourceAttrSet(data.ResourceName, "possible_outbound_ip_addresses"),
 				),

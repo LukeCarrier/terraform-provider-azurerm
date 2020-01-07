@@ -31,6 +31,8 @@ func TestAccAzureRMFunctionApp_basic(t *testing.T) {
 					testCheckAzureRMFunctionAppExists(data.ResourceName),
 					testCheckAzureRMFunctionAppHasNoContentShare(data.ResourceName),
 					resource.TestCheckResourceAttr(data.ResourceName, "version", "~1"),
+					resource.TestCheckResourceAttrSet(data.ResourceName, "inbound_ip_addresses"),
+					resource.TestCheckResourceAttrSet(data.ResourceName, "possible_inbound_ip_addresses"),
 					resource.TestCheckResourceAttrSet(data.ResourceName, "outbound_ip_addresses"),
 					resource.TestCheckResourceAttrSet(data.ResourceName, "possible_outbound_ip_addresses"),
 				),
